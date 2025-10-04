@@ -1,18 +1,11 @@
-# Start from a lightweight Java runtime image
+# Use JDK 17 base image
 FROM openjdk:17-jdk-slim
 
-# Metadata (optional)
-LABEL maintainer="yourname@example.com"
+# Copy jar file from target folder
+COPY target/*.jar app.jar
 
-# Create working directory
-WORKDIR /app
-
-# Copy the built JAR from the Jenkins workspace into the image
-COPY target/demo-1.0-SNAPSHOT.jar app.jar
-
-# Expose application port
+# Expose port (change if your app uses a different one)
 EXPOSE 8080
 
-# Run the JAR file
-ENTRYPOINT ["java", "-jar", "app.jar"]
-
+# Run the jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
