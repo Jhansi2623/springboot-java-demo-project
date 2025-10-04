@@ -1,5 +1,5 @@
 # Start from a lightweight Java runtime image
-FROM openjdk:21-jdk-slim
+FROM openjdk:17-jdk-slim
 
 # Metadata (optional)
 LABEL maintainer="yourname@example.com"
